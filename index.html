@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JamPy On-Chain Remarks</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    padding: 24px;
+  }
+
+  header {
+    max-width: 1200px;
+    margin: 0 auto 24px;
+  }
+
+  header h1 { font-size: 1.6rem; color: #e6edf3; margin-bottom: 6px; }
+  header p { font-size: 0.9rem; color: #8b949e; }
+  header a { color: #58a6ff; text-decoration: none; }
+  header a:hover { text-decoration: underline; }
+
+  .table-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: auto;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    min-width: 700px;
+  }
+
+  thead { background: #161b22; }
+
+  th {
+    text-align: left;
+    padding: 10px 12px;
+    color: #e6edf3;
+    font-weight: 600;
+    border-bottom: 1px solid #30363d;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #21262d;
+    vertical-align: top;
+  }
+
+  /* Remark rows — green accent (on-chain) */
+  tr.remark {
+    border-left: 3px solid #238636;
+  }
+  tr.remark:hover { background: #122117; }
+  tr.remark td:first-child { color: #3fb950; }
+  tr.remark .hash a { color: #3fb950; }
+
+  .hash {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.82rem;
+  }
+
+  a { color: #58a6ff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .msg { max-width: 340px; word-break: break-word; }
+  .date { white-space: nowrap; color: #8b949e; font-size: 0.82rem; }
+
+  /* Gap summary row — orange/muted accent */
+  tr.gap-summary {
+    cursor: pointer;
+    user-select: none;
+    border-left: 3px solid #30363d;
+  }
+  tr.gap-summary:hover { background: #1c1610; }
+  tr.gap-summary td {
+    color: #d29922;
+    font-size: 0.82rem;
+    padding: 5px 12px;
+    border-bottom: 1px solid #21262d;
+  }
+  .gap-toggle {
+    display: inline-block;
+    width: 16px;
+    text-align: center;
+    margin-right: 6px;
+    font-size: 0.7rem;
+    color: #d29922;
+    transition: transform 0.15s;
+  }
+  .gap-toggle.open { transform: rotate(90deg); }
+
+  /* Expanded gap commit rows */
+  tr.gap-commit {
+    display: none;
+    background: #0d1117;
+    border-left: 3px solid #d2992233;
+  }
+  tr.gap-commit.visible { display: table-row; }
+  tr.gap-commit:hover { background: #1c1610; }
+  tr.gap-commit td {
+    padding: 5px 12px 5px 28px;
+    font-size: 0.8rem;
+    color: #8b949e;
+    border-bottom: 1px solid #161b22;
+  }
+  tr.gap-commit .hash a { color: #d29922; }
+
+  .count {
+    max-width: 1200px;
+    margin: 12px auto 0;
+    font-size: 0.82rem;
+    color: #8b949e;
+  }
+
+  .loading {
+    max-width: 1200px;
+    margin: 40px auto;
+    text-align: center;
+    color: #8b949e;
+  }
+
+  @media (max-width: 700px) {
+    body { padding: 12px; }
+    table { font-size: 0.78rem; }
+    th, td { padding: 6px 8px; }
+    .msg { max-width: 180px; }
+    tr.gap-commit td { padding-left: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>JamPy On-Chain Remarks</h1>
+  <p>
+    Polkadot <code>system.remark</code> extrinsics from
+    <a href="https://polkadot.subscan.io/account/12iqwZGB2sguEhjFi2ZRuWWixU8mHJnSiP1pwDefqGsBy4rV?tab=extrinsic">12iqwZ...By4rV</a>
+    linked to commits in
+    <a href="https://github.com/dakk/jampy">dakk/jampy</a>
+  </p>
+</header>
+
+<div id="loading" class="loading">Loading data&hellip;</div>
+
+<div id="table-wrap" class="table-wrap" style="display:none">
+<table>
+<thead>
+<tr>
+  <th>Remark</th>
+  <th>Commit</th>
+  <th>Message</th>
+  <th>Remark Date</th>
+  <th>Commit Date</th>
+</tr>
+</thead>
+<tbody id="tbody"></tbody>
+</table>
+</div>
+
+<p id="count" class="count" style="display:none"></p>
+
+<script>
+function escapeHtml(s) {
+  const el = document.createElement("span");
+  el.textContent = s;
+  return el.innerHTML;
+}
+
+function formatRemarkDate(s) {
+  return s.replace(/:\d{2} UTC$/, " UTC");
+}
+
+function formatCommitDate(s) {
+  if (!s) return "\u2014";
+  return s.split("T")[0];
+}
+
+function extrinsicIndex(url) {
+  return url.split("/").pop();
+}
+
+let gapId = 0;
+
+function renderRemark(row) {
+  const idx = escapeHtml(extrinsicIndex(row.remark_url));
+  return `<tr class="remark">
+    <td><a href="${escapeHtml(row.remark_url)}">${idx}</a></td>
+    <td class="hash"><a href="${escapeHtml(row.github_commit_url)}">${escapeHtml(row.commit_hash.slice(0, 8))}</a></td>
+    <td class="msg">${escapeHtml(row.commit_message)}</td>
+    <td class="date">${escapeHtml(formatRemarkDate(row.remark_date))}</td>
+    <td class="date">${escapeHtml(formatCommitDate(row.commit_date))}</td>
+  </tr>`;
+}
+
+function renderGap(entry) {
+  const commits = entry.commits;
+  if (!commits.length) return "";
+
+  const id = "gap-" + (gapId++);
+  const n = commits.length;
+  const label = n === 1 ? "1 commit" : `${n} commits`;
+
+  let html = `<tr class="gap-summary" onclick="toggleGap('${id}', this)">
+    <td colspan="5"><span class="gap-toggle" id="arrow-${id}">\u25B6</span>${label} between these remarks</td>
+  </tr>`;
+
+  for (const c of commits) {
+    html += `<tr class="gap-commit ${id}">
+      <td></td>
+      <td class="hash"><a href="${escapeHtml(c.github_commit_url)}">${escapeHtml(c.commit_hash.slice(0, 8))}</a></td>
+      <td class="msg">${escapeHtml(c.commit_message)}</td>
+      <td></td>
+      <td class="date">${escapeHtml(formatCommitDate(c.commit_date))}</td>
+    </tr>`;
+  }
+
+  return html;
+}
+
+function toggleGap(id, summaryRow) {
+  const rows = document.querySelectorAll("tr." + id);
+  const arrow = document.getElementById("arrow-" + id);
+  const isOpen = arrow.classList.toggle("open");
+  rows.forEach(r => r.classList.toggle("visible", isOpen));
+}
+
+function renderTable(data) {
+  // Reverse to show oldest first
+  const reversed = [...data].reverse();
+  // Also reverse commits within each gap so oldest is first
+  for (const entry of reversed) {
+    if (entry.type === "gap") entry.commits = [...entry.commits].reverse();
+  }
+
+  const tbody = document.getElementById("tbody");
+  let html = "";
+
+  let remarkCount = 0;
+  let gapCommitCount = 0;
+
+  for (const entry of reversed) {
+    if (entry.type === "remark") {
+      html += renderRemark(entry);
+      remarkCount++;
+    } else if (entry.type === "gap") {
+      html += renderGap(entry);
+      gapCommitCount += entry.commits.length;
+    }
+  }
+
+  tbody.innerHTML = html;
+
+  document.getElementById("loading").style.display = "none";
+  document.getElementById("table-wrap").style.display = "";
+
+  const remarks = reversed.filter(e => e.type === "remark");
+  const first = remarks[0]?.remark_date?.slice(0, 7) || "";
+  const last = remarks[remarks.length - 1]?.remark_date?.slice(0, 7) || "";
+  const countEl = document.getElementById("count");
+  countEl.textContent = `${remarkCount} on-chain remarks \u00b7 ${gapCommitCount} commits in between \u00b7 ${first} \u2013 ${last}`;
+  countEl.style.display = "";
+}
+
+fetch("remark_commits.json")
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(renderTable)
+  .catch(e => {
+    document.getElementById("loading").textContent = "Failed to load data: " + e.message;
+  });
+</script>
+
+</body>
+</html>
