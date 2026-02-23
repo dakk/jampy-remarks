@@ -148,6 +148,37 @@ def git_commits_between(older_hash, newer_hash):
         return []
 
 
+def git_commits_before(older_hash):
+    """Get commits from parent of older_hash down to repo root."""
+    try:
+        result = subprocess.run(
+            ["git", "log", "--format=%H%n%aI%n%s", f"{older_hash}^"],
+            cwd=JAMPY_REPO,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        if result.returncode != 0:
+            return []
+        lines = result.stdout.strip().split("\n")
+        commits = []
+        for i in range(0, len(lines) - 2, 3):
+            h = lines[i].strip()
+            d = lines[i + 1].strip()
+            m = lines[i + 2].strip()
+            if not h:
+                continue
+            commits.append({
+                "commit_hash": h,
+                "commit_message": m,
+                "commit_date": d,
+                "github_commit_url": f"https://github.com/dakk/jampy/commit/{h}",
+            })
+        return commits
+    except Exception:
+        return []
+
+
 def git_commits_after(newer_hash):
     """Get commits from HEAD down to newer_hash, excluding newer_hash itself."""
     try:
@@ -277,6 +308,13 @@ def main():
             if gap:
                 output.append({"type": "gap", "commits": gap})
                 print(f"  {len(gap)} commits between {row['commit_hash'][:8]} and {rows[i+1]['commit_hash'][:8]}")
+
+    # Gap from oldest remark to repo creation
+    if rows:
+        gap = git_commits_before(rows[-1]["commit_hash"])
+        if gap:
+            output.append({"type": "gap", "commits": gap})
+            print(f"  {len(gap)} commits before oldest remark")
 
     # Write JSON
     with open(JSON_FILENAME, "w", encoding="utf-8") as f:

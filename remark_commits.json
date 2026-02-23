@@ -1,5 +1,16 @@
 [
   {
+    "type": "gap",
+    "commits": [
+      {
+        "commit_hash": "d439740e6fa63875e4c7384c973033eeb54955ab",
+        "commit_message": "add jampy-remarks link",
+        "commit_date": "2026-02-23T10:17:52+01:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/d439740e6fa63875e4c7384c973033eeb54955ab"
+      }
+    ]
+  },
+  {
     "remark_url": "https://polkadot.subscan.io/extrinsic/30080253-2",
     "commit_hash": "6111f3684dad57719b883c298aee28afcc0e68f0",
     "commit_message": "update readme",
