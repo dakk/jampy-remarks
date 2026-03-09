@@ -1,7 +1,34 @@
 [
   {
+    "remark_url": "https://polkadot.subscan.io/extrinsic/30286026-2",
+    "commit_hash": "17f8bc611539131a0a936ab798c9ee094cb908d9",
+    "commit_message": "improve deserialization perfs",
+    "remark_date": "2026-03-09 16:36:24 UTC",
+    "commit_date": "2026-03-05T16:58:59+01:00",
+    "github_commit_url": "https://github.com/dakk/jampy/commit/17f8bc611539131a0a936ab798c9ee094cb908d9",
+    "type": "remark"
+  },
+  {
     "type": "gap",
     "commits": [
+      {
+        "commit_hash": "f1e65eebdc7e74e12a69b0b3ddbd0cec89035162",
+        "commit_message": "use memoriview for trace deserialization",
+        "commit_date": "2026-03-05T16:46:17+01:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/f1e65eebdc7e74e12a69b0b3ddbd0cec89035162"
+      },
+      {
+        "commit_hash": "bc6a5a96bc6f8eb482d7380d7acecf7538a5f0d1",
+        "commit_message": "improve merklestate from bytes performance using a memoryview",
+        "commit_date": "2026-03-05T16:16:21+01:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/bc6a5a96bc6f8eb482d7380d7acecf7538a5f0d1"
+      },
+      {
+        "commit_hash": "ca9a5ae552f7ea814452d9e924837cca0af48619",
+        "commit_message": "Use docker to performe the target build",
+        "commit_date": "2026-02-24T20:38:52+01:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/ca9a5ae552f7ea814452d9e924837cca0af48619"
+      },
       {
         "commit_hash": "d439740e6fa63875e4c7384c973033eeb54955ab",
         "commit_message": "add jampy-remarks link",

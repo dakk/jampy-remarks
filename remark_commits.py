@@ -210,87 +210,31 @@ def git_commits_after(newer_hash):
         return []
 
 
-def main():
-    print("Fetching system.remark extrinsics...")
+def load_existing_data():
+    """Load existing JSON data and return (output list, set of known remark_urls)."""
+    try:
+        with open(JSON_FILENAME, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        known = set()
+        for entry in data:
+            if entry.get("type") == "remark":
+                known.add(entry["remark_url"])
+        return data, known
+    except (FileNotFoundError, json.JSONDecodeError):
+        return [], set()
 
-    # Step 1: get all extrinsic indices
-    all_extrinsics = []
-    after_id = 0
-    page = 0
-    stop = False
 
-    while not stop:
-        records = fetch_extrinsics_list(after_id, page)
-        if not records:
-            break
+def extract_existing_remarks(existing_data):
+    """Extract remark rows (newest-first) from existing output data."""
+    return [
+        {k: v for k, v in entry.items() if k != "type"}
+        for entry in existing_data
+        if entry.get("type") == "remark"
+    ]
 
-        for ext in records:
-            block_timestamp = ext.get("block_timestamp", 0)
-            if block_timestamp < CUTOFF_TIMESTAMP:
-                print("Reached extrinsics before Aug 2024, stopping list fetch.")
-                stop = True
-                break
-            all_extrinsics.append(ext)
 
-        if len(records) < ROW_PER_PAGE:
-            break
-
-        if "id" in records[-1]:
-            after_id = records[-1]["id"]
-        else:
-            page += 1
-
-        time.sleep(0.5)
-
-    print(f"Found {len(all_extrinsics)} remark extrinsics, fetching details...")
-
-    # Step 2: fetch detail for each extrinsic to get params
-    rows = []
-    for i, ext in enumerate(all_extrinsics):
-        extrinsic_index = ext.get("extrinsic_index", "")
-        block_timestamp = ext.get("block_timestamp", 0)
-        remark_date = (
-            datetime.fromtimestamp(block_timestamp, tz=timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
-            if block_timestamp else ""
-        )
-        remark_url = f"https://polkadot.subscan.io/extrinsic/{extrinsic_index}"
-
-        # Fetch detail
-        detail = fetch_extrinsic_detail(extrinsic_index)
-        if not detail:
-            print(f"  [{i+1}/{len(all_extrinsics)}] Failed to fetch detail for {extrinsic_index}")
-            continue
-
-        commit_hash = extract_remark_value(detail.get("params", []))
-        if not commit_hash:
-            print(f"  [{i+1}/{len(all_extrinsics)}] No remark value in {extrinsic_index}")
-            continue
-
-        commit_hash = commit_hash.strip()
-
-        commit_message, commit_date = git_commit_info(commit_hash)
-        if commit_message is None:
-            print(f"  [{i+1}/{len(all_extrinsics)}] Skipping non-commit remark: {commit_hash}")
-            continue
-
-        github_url = f"https://github.com/dakk/jampy/commit/{commit_hash}"
-
-        rows.append({
-            "remark_url": remark_url,
-            "commit_hash": commit_hash,
-            "commit_message": commit_message,
-            "remark_date": remark_date,
-            "commit_date": commit_date,
-            "github_commit_url": github_url,
-        })
-
-        print(f"  [{i+1}/{len(all_extrinsics)}] {commit_hash[:12]}... -> {commit_message[:50]}")
-        time.sleep(0.5)
-
-    print(f"\nCollected {len(rows)} remark rows, finding gap commits...")
-
-    # Step 3: interleave gap commits between consecutive remarks
-    # rows is sorted newest-first
+def build_output(rows):
+    """Build full output with gap commits interleaved between remark rows."""
     output = []
 
     # Gap from HEAD to the newest remark
@@ -315,6 +259,120 @@ def main():
         if gap:
             output.append({"type": "gap", "commits": gap})
             print(f"  {len(gap)} commits before oldest remark")
+
+    return output
+
+
+def main():
+    existing_data, known_remark_urls = load_existing_data()
+    existing_remarks = extract_existing_remarks(existing_data)
+
+    if known_remark_urls:
+        print(f"Loaded {len(known_remark_urls)} existing remarks from {JSON_FILENAME}")
+    else:
+        print(f"No existing data found, fetching everything...")
+
+    print("Fetching system.remark extrinsics...")
+
+    # Step 1: get new extrinsic indices (stop when we hit a known one)
+    new_extrinsics = []
+    after_id = 0
+    page = 0
+    stop = False
+
+    while not stop:
+        records = fetch_extrinsics_list(after_id, page)
+        if not records:
+            break
+
+        for ext in records:
+            block_timestamp = ext.get("block_timestamp", 0)
+            if block_timestamp < CUTOFF_TIMESTAMP:
+                print("Reached extrinsics before Aug 2024, stopping list fetch.")
+                stop = True
+                break
+
+            extrinsic_index = ext.get("extrinsic_index", "")
+            remark_url = f"https://polkadot.subscan.io/extrinsic/{extrinsic_index}"
+            if remark_url in known_remark_urls:
+                print(f"Reached already-known remark {extrinsic_index}, stopping.")
+                stop = True
+                break
+
+            new_extrinsics.append(ext)
+
+        if len(records) < ROW_PER_PAGE:
+            break
+
+        if "id" in records[-1]:
+            after_id = records[-1]["id"]
+        else:
+            page += 1
+
+        time.sleep(0.5)
+
+    if not new_extrinsics:
+        print("No new remarks found.")
+        # Still rebuild gaps (HEAD may have advanced)
+        if existing_remarks:
+            print("Rebuilding gap commits...")
+            output = build_output(existing_remarks)
+            with open(JSON_FILENAME, "w", encoding="utf-8") as f:
+                json.dump(output, f, indent=2, ensure_ascii=False)
+            remark_count = sum(1 for e in output if e["type"] == "remark")
+            gap_count = sum(len(e["commits"]) for e in output if e["type"] == "gap")
+            print(f"Wrote {len(output)} entries ({remark_count} remarks, {gap_count} gap commits) to {JSON_FILENAME}")
+        return
+
+    print(f"Found {len(new_extrinsics)} new remark extrinsics, fetching details...")
+
+    # Step 2: fetch detail only for new extrinsics
+    new_rows = []
+    for i, ext in enumerate(new_extrinsics):
+        extrinsic_index = ext.get("extrinsic_index", "")
+        block_timestamp = ext.get("block_timestamp", 0)
+        remark_date = (
+            datetime.fromtimestamp(block_timestamp, tz=timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+            if block_timestamp else ""
+        )
+        remark_url = f"https://polkadot.subscan.io/extrinsic/{extrinsic_index}"
+
+        detail = fetch_extrinsic_detail(extrinsic_index)
+        if not detail:
+            print(f"  [{i+1}/{len(new_extrinsics)}] Failed to fetch detail for {extrinsic_index}")
+            continue
+
+        commit_hash = extract_remark_value(detail.get("params", []))
+        if not commit_hash:
+            print(f"  [{i+1}/{len(new_extrinsics)}] No remark value in {extrinsic_index}")
+            continue
+
+        commit_hash = commit_hash.strip()
+
+        commit_message, commit_date = git_commit_info(commit_hash)
+        if commit_message is None:
+            print(f"  [{i+1}/{len(new_extrinsics)}] Skipping non-commit remark: {commit_hash}")
+            continue
+
+        github_url = f"https://github.com/dakk/jampy/commit/{commit_hash}"
+
+        new_rows.append({
+            "remark_url": remark_url,
+            "commit_hash": commit_hash,
+            "commit_message": commit_message,
+            "remark_date": remark_date,
+            "commit_date": commit_date,
+            "github_commit_url": github_url,
+        })
+
+        print(f"  [{i+1}/{len(new_extrinsics)}] {commit_hash[:12]}... -> {commit_message[:50]}")
+        time.sleep(0.5)
+
+    print(f"\nCollected {len(new_rows)} new remark rows, rebuilding output...")
+
+    # Step 3: merge new rows (newest-first) with existing remarks, then rebuild gaps
+    all_rows = new_rows + existing_remarks
+    output = build_output(all_rows)
 
     # Write JSON
     with open(JSON_FILENAME, "w", encoding="utf-8") as f:
