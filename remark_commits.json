@@ -1,5 +1,25 @@
 [
   {
+    "remark_url": "https://polkadot.subscan.io/extrinsic/30401278-2",
+    "commit_hash": "6fde37bf61b555a80a8d09503a86537d2d3c4713",
+    "commit_message": "fix invokation concurrency",
+    "remark_date": "2026-03-17 17:16:30 UTC",
+    "commit_date": "2026-03-17T18:11:25+01:00",
+    "github_commit_url": "https://github.com/dakk/jampy/commit/6fde37bf61b555a80a8d09503a86537d2d3c4713",
+    "type": "remark"
+  },
+  {
+    "type": "gap",
+    "commits": [
+      {
+        "commit_hash": "de4694d77aa118c502ce792c5a6c9a9eedea428e",
+        "commit_message": "handle target disconnection, add use-recompiler flag in target",
+        "commit_date": "2026-03-17T18:11:18+01:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/de4694d77aa118c502ce792c5a6c9a9eedea428e"
+      }
+    ]
+  },
+  {
     "remark_url": "https://polkadot.subscan.io/extrinsic/30286026-2",
     "commit_hash": "17f8bc611539131a0a936ab798c9ee094cb908d9",
     "commit_message": "improve deserialization perfs",

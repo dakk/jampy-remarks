@@ -1,14 +1,17 @@
 import http.client
 import json
+import os
 import subprocess
 import time
 from datetime import datetime, timezone
 
 # Subscan API config
 API_HOST = "polkadot.api.subscan.io"
+API_KEY = os.environ.get("SUBSCAN_API_KEY", "")
+
 HEADERS = {
-    # 'x-api-key': "API_KEY",  # from https://pro.subscan.io/ for higher rate limit
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    **({"x-api-key": API_KEY} if API_KEY else {}),
 }
 
 ADDRESS = "12iqwZGB2sguEhjFi2ZRuWWixU8mHJnSiP1pwDefqGsBy4rV"
