@@ -1,5 +1,37 @@
 [
   {
+    "remark_url": "https://polkadot.subscan.io/extrinsic/30481418-2",
+    "commit_hash": "7d81e392d7b876ef45d32c94f5f0251bf14baff8",
+    "commit_message": "Add release instructions",
+    "remark_date": "2026-03-23 07:23:54 UTC",
+    "commit_date": "2026-03-19T10:49:02+01:00",
+    "github_commit_url": "https://github.com/dakk/jampy/commit/7d81e392d7b876ef45d32c94f5f0251bf14baff8",
+    "type": "remark"
+  },
+  {
+    "type": "gap",
+    "commits": [
+      {
+        "commit_hash": "c89748100e285b24b2cbf5e8d1d23eeb97a78135",
+        "commit_message": "minor on accumulation parallelism",
+        "commit_date": "2026-03-19T09:10:54+01:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/c89748100e285b24b2cbf5e8d1d23eeb97a78135"
+      },
+      {
+        "commit_hash": "7833b528778c5fa4160c834809b46a7f3aa9a08d",
+        "commit_message": "recompiler flags",
+        "commit_date": "2026-03-19T08:13:14+01:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/7833b528778c5fa4160c834809b46a7f3aa9a08d"
+      },
+      {
+        "commit_hash": "7efb49420047b5d07f169080bb931135e7f8d295",
+        "commit_message": "fix ticketentrinsc encoding, remove unit test about the previous wrong encoding",
+        "commit_date": "2026-03-19T08:11:22+01:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/7efb49420047b5d07f169080bb931135e7f8d295"
+      }
+    ]
+  },
+  {
     "remark_url": "https://polkadot.subscan.io/extrinsic/30401278-2",
     "commit_hash": "6fde37bf61b555a80a8d09503a86537d2d3c4713",
     "commit_message": "fix invokation concurrency",
