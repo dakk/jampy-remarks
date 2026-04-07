@@ -7,7 +7,9 @@ from datetime import datetime, timezone
 
 # Subscan API config
 API_HOST = "polkadot.api.subscan.io"
-API_KEY = os.environ.get("SUBSCAN_API_KEY", "")
+API_KEY = os.environ.get("SUBSCAN_API_KEY")
+if not API_KEY:
+    raise SystemExit("Error: SUBSCAN_API_KEY environment variable is not set")
 
 HEADERS = {
     'Content-Type': 'application/json',
@@ -343,7 +345,7 @@ def main():
         detail = fetch_extrinsic_detail(extrinsic_index)
         if not detail:
             print(f"  [{i+1}/{len(new_extrinsics)}] Failed to fetch detail for {extrinsic_index}")
-            continue
+            raise SystemExit(1)
 
         commit_hash = extract_remark_value(detail.get("params", []))
         if not commit_hash:
