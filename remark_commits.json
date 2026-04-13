@@ -3,34 +3,84 @@
     "type": "gap",
     "commits": [
       {
-        "commit_hash": "dfc0b5e5cf22cff55c8cd78d5cacf87f1ba2b758",
-        "commit_message": "unlikely op",
-        "commit_date": "2025-12-15T11:04:16+01:00",
-        "github_commit_url": "https://github.com/dakk/jampy/commit/dfc0b5e5cf22cff55c8cd78d5cacf87f1ba2b758"
+        "commit_hash": "2a36601927a5862a62e871978b528a6d31f8e87b",
+        "commit_message": "optimize grandpa with state copy on write and pre validation",
+        "commit_date": "2026-04-13T14:46:13+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/2a36601927a5862a62e871978b528a6d31f8e87b"
+      }
+    ]
+  },
+  {
+    "remark_url": "https://polkadot.subscan.io/extrinsic/30785679-2",
+    "commit_hash": "f1cd970454ec2eb6d80e757fd6b956d22a2605a4",
+    "commit_message": "change failure icon",
+    "remark_date": "2026-04-13 12:42:18 UTC",
+    "commit_date": "2026-04-13T11:39:42+02:00",
+    "github_commit_url": "https://github.com/dakk/jampy/commit/f1cd970454ec2eb6d80e757fd6b956d22a2605a4",
+    "type": "remark"
+  },
+  {
+    "type": "gap",
+    "commits": [
+      {
+        "commit_hash": "b827025dbb1e4e59d2c57b25d5cce0fad364da39",
+        "commit_message": "height from serialized safrole helper method",
+        "commit_date": "2026-04-13T11:27:28+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/b827025dbb1e4e59d2c57b25d5cce0fad364da39"
       },
       {
-        "commit_hash": "196a69dec41990856ece2a81e52eb0f28d1fd972",
-        "commit_message": "add gas table and helper functions",
-        "commit_date": "2025-12-15T11:04:04+01:00",
-        "github_commit_url": "https://github.com/dakk/jampy/commit/196a69dec41990856ece2a81e52eb0f28d1fd972"
+        "commit_hash": "33a280fbcad3a82647003ed8bcc9812fe5ec50ad",
+        "commit_message": "fix block validation in grandpa",
+        "commit_date": "2026-04-13T10:08:01+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/33a280fbcad3a82647003ed8bcc9812fe5ec50ad"
       },
       {
-        "commit_hash": "38711e150d4e34c7a68c4593643cb63534731f5e",
-        "commit_message": "remove gas things from instr",
-        "commit_date": "2025-12-15T11:03:50+01:00",
-        "github_commit_url": "https://github.com/dakk/jampy/commit/38711e150d4e34c7a68c4593643cb63534731f5e"
+        "commit_hash": "b396c8ee1f1612ccf660cd8e97eca1ef7f08feb4",
+        "commit_message": "memory footprint in grandpa",
+        "commit_date": "2026-04-13T10:00:40+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/b396c8ee1f1612ccf660cd8e97eca1ef7f08feb4"
       },
       {
-        "commit_hash": "afbce2c3f78e8540dbed890b94fa4b888c561124",
-        "commit_message": "fix linting",
-        "commit_date": "2025-12-15T10:01:00+01:00",
-        "github_commit_url": "https://github.com/dakk/jampy/commit/afbce2c3f78e8540dbed890b94fa4b888c561124"
+        "commit_hash": "9497aec0626cc2b1bd83c12fd17b051ff54dbeae",
+        "commit_message": "improve grandpa",
+        "commit_date": "2026-04-13T09:40:16+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/9497aec0626cc2b1bd83c12fd17b051ff54dbeae"
       },
       {
-        "commit_hash": "7822ba857c35a0b9edb5fad8698df1c2b351118e",
-        "commit_message": "stubs for gas model, add gas related info to Instr",
-        "commit_date": "2025-12-15T09:19:43+01:00",
-        "github_commit_url": "https://github.com/dakk/jampy/commit/7822ba857c35a0b9edb5fad8698df1c2b351118e"
+        "commit_hash": "a37ef6e23dbcee1a49d2bbf60c5688c884682863",
+        "commit_message": "restore old grandpa",
+        "commit_date": "2026-04-13T09:27:27+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/a37ef6e23dbcee1a49d2bbf60c5688c884682863"
+      },
+      {
+        "commit_hash": "29efe8abfcf37307fc34b3fed7205316fbeecb18",
+        "commit_message": "block validation before state cloning",
+        "commit_date": "2026-04-13T09:24:03+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/29efe8abfcf37307fc34b3fed7205316fbeecb18"
+      },
+      {
+        "commit_hash": "1a2f10f0c5130868a4a18e48a5f30eaab7a4977d",
+        "commit_message": "fix revert logic",
+        "commit_date": "2026-04-13T09:21:38+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/1a2f10f0c5130868a4a18e48a5f30eaab7a4977d"
+      },
+      {
+        "commit_hash": "d60f87ca0010f460744746c1af33ec31fd9d4296",
+        "commit_message": "add grandpa debugging",
+        "commit_date": "2026-04-11T10:36:50+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/d60f87ca0010f460744746c1af33ec31fd9d4296"
+      },
+      {
+        "commit_hash": "7972387d1ebafb65d675c0421fbb154810543792",
+        "commit_message": "improve grandpa cleanup policy",
+        "commit_date": "2026-04-11T10:32:43+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/7972387d1ebafb65d675c0421fbb154810543792"
+      },
+      {
+        "commit_hash": "ea59464b46c74694372153d7e9f7b7f8149d6cee",
+        "commit_message": "add caching maxsize to get_ast_of_opc",
+        "commit_date": "2026-04-10T16:56:43+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/ea59464b46c74694372153d7e9f7b7f8149d6cee"
       }
     ]
   },
