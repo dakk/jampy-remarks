@@ -1,12 +1,197 @@
 [
   {
+    "remark_url": "https://polkadot.subscan.io/extrinsic/31184106-2",
+    "commit_hash": "959f615830c7feb46912d92c0a9096c8785e39a3",
+    "commit_message": "minor docker fizes",
+    "remark_date": "2026-05-11 06:41:42 UTC",
+    "commit_date": "2026-05-09T09:33:14+02:00",
+    "github_commit_url": "https://github.com/dakk/jampy/commit/959f615830c7feb46912d92c0a9096c8785e39a3",
+    "type": "remark"
+  },
+  {
     "type": "gap",
     "commits": [
       {
-        "commit_hash": "2a36601927a5862a62e871978b528a6d31f8e87b",
-        "commit_message": "optimize grandpa with state copy on write and pre validation",
-        "commit_date": "2026-04-13T14:46:13+02:00",
-        "github_commit_url": "https://github.com/dakk/jampy/commit/2a36601927a5862a62e871978b528a6d31f8e87b"
+        "commit_hash": "3fde4ff75fd226cc579be04051305fc106be0e03",
+        "commit_message": "fuzzerproto connect now returns client data",
+        "commit_date": "2026-05-09T09:05:37+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/3fde4ff75fd226cc579be04051305fc106be0e03"
+      },
+      {
+        "commit_hash": "285e4952555bd737cbc087ac4f28012e09415848",
+        "commit_message": "remove old envs, log env set event",
+        "commit_date": "2026-05-09T09:05:18+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/285e4952555bd737cbc087ac4f28012e09415848"
+      },
+      {
+        "commit_hash": "676b4a01789abe447198b035359ccc2120cec029",
+        "commit_message": "vscode",
+        "commit_date": "2026-05-09T09:05:03+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/676b4a01789abe447198b035359ccc2120cec029"
+      },
+      {
+        "commit_hash": "3fcd6c96d435589472f000907fdfb815fb2d8143",
+        "commit_message": "add arguments to state validation errors",
+        "commit_date": "2026-05-09T09:04:56+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/3fcd6c96d435589472f000907fdfb815fb2d8143"
+      },
+      {
+        "commit_hash": "005b7c6a999247779fda05b576ae315a9896f4a8",
+        "commit_message": "fuzzer testing using fuzzerproto",
+        "commit_date": "2026-05-09T09:04:14+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/005b7c6a999247779fda05b576ae315a9896f4a8"
+      },
+      {
+        "commit_hash": "d6cf8bcfd048072e85c4c85f2457f142ac6ccd1e",
+        "commit_message": "lintfix",
+        "commit_date": "2026-05-07T14:53:32+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/d6cf8bcfd048072e85c4c85f2457f142ac6ccd1e"
+      },
+      {
+        "commit_hash": "326d99aa043a46ae2c0a5199cad83094c9a0b729",
+        "commit_message": "improve fuzzer and fuzzerproto abstraction",
+        "commit_date": "2026-05-07T14:43:41+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/326d99aa043a46ae2c0a5199cad83094c9a0b729"
+      },
+      {
+        "commit_hash": "0b9ee6378a5df4d4c8948b5c723f4966f733787e",
+        "commit_message": "lintfix",
+        "commit_date": "2026-05-07T11:49:06+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/0b9ee6378a5df4d4c8948b5c723f4966f733787e"
+      },
+      {
+        "commit_hash": "bf3e2cf6b607e0841c7b8917177a57c7b8017162",
+        "commit_message": "use polkajam fuzzer parameters",
+        "commit_date": "2026-05-07T11:49:01+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/bf3e2cf6b607e0841c7b8917177a57c7b8017162"
+      },
+      {
+        "commit_hash": "250b86f370fca3a74c38e9ccaf41c2294ac45813",
+        "commit_message": "current grandpa as targetgrandpa, implementing m1 forks",
+        "commit_date": "2026-05-07T11:35:00+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/250b86f370fca3a74c38e9ccaf41c2294ac45813"
+      }
+    ]
+  },
+  {
+    "remark_url": "https://polkadot.subscan.io/extrinsic/31084643-2",
+    "commit_hash": "7861792632e2c85a735a9b7aca3d260aee90419d",
+    "commit_message": "env fuzz default",
+    "remark_date": "2026-05-04 08:25:06 UTC",
+    "commit_date": "2026-04-29T08:18:25+02:00",
+    "github_commit_url": "https://github.com/dakk/jampy/commit/7861792632e2c85a735a9b7aca3d260aee90419d",
+    "type": "remark"
+  },
+  {
+    "type": "gap",
+    "commits": [
+      {
+        "commit_hash": "b658efbb7d5dbaa30bfd4f815f05568ef3dfefe5",
+        "commit_message": "lintfix",
+        "commit_date": "2026-04-29T08:14:56+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/b658efbb7d5dbaa30bfd4f815f05568ef3dfefe5"
+      },
+      {
+        "commit_hash": "e913439a7bf1fe0cd7874e1aeb3f5d330320450c",
+        "commit_message": "mandatory env vars for target",
+        "commit_date": "2026-04-29T08:10:26+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/e913439a7bf1fe0cd7874e1aeb3f5d330320450c"
+      },
+      {
+        "commit_hash": "afc249c3e6f5168a645bae87e0c3234db147211a",
+        "commit_message": "minors",
+        "commit_date": "2026-04-28T14:07:10+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/afc249c3e6f5168a645bae87e0c3234db147211a"
+      },
+      {
+        "commit_hash": "d2ed066a9c858e2574713219d3bfaba9c82359fd",
+        "commit_message": "fix target testing",
+        "commit_date": "2026-04-28T09:55:08+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/d2ed066a9c858e2574713219d3bfaba9c82359fd"
+      },
+      {
+        "commit_hash": "c651ae9ccbe09ea1092681e9d471350b6c783268",
+        "commit_message": "fix linters",
+        "commit_date": "2026-04-28T09:43:12+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/c651ae9ccbe09ea1092681e9d471350b6c783268"
+      },
+      {
+        "commit_hash": "9940229a8e2a208282a8b36633de85f862949c28",
+        "commit_message": "update target for using env variables",
+        "commit_date": "2026-04-28T09:43:05+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/9940229a8e2a208282a8b36633de85f862949c28"
+      },
+      {
+        "commit_hash": "7cdeba4e42535e63428bc2ef65777baebe65360c",
+        "commit_message": "update the build system in order to build and push the docker image for fuzzer and target during the docker_build",
+        "commit_date": "2026-04-28T09:18:07+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/7cdeba4e42535e63428bc2ef65777baebe65360c"
+      },
+      {
+        "commit_hash": "5407e284842dd0740599b8fcef39d692177eba73",
+        "commit_message": "update binary parameters",
+        "commit_date": "2026-04-27T17:23:05+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/5407e284842dd0740599b8fcef39d692177eba73"
+      },
+      {
+        "commit_hash": "0aab14bb86449fe445cbd07bea06ff048777831e",
+        "commit_message": "grandpa comments",
+        "commit_date": "2026-04-27T17:15:02+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/0aab14bb86449fe445cbd07bea06ff048777831e"
+      },
+      {
+        "commit_hash": "241d480e73863e06487d464f1788dc5a4883f226",
+        "commit_message": "lintfix",
+        "commit_date": "2026-04-24T08:03:42+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/241d480e73863e06487d464f1788dc5a4883f226"
+      },
+      {
+        "commit_hash": "a3fa39b71c5409c1ec196f606a5fbe98f9240eac",
+        "commit_message": "siblings removal",
+        "commit_date": "2026-04-23T17:08:36+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/a3fa39b71c5409c1ec196f606a5fbe98f9240eac"
+      },
+      {
+        "commit_hash": "a856237d7dfab74c4e7fa77b3cbb6b2cc511a791",
+        "commit_message": "adjust grandpa pruning of grandfather only",
+        "commit_date": "2026-04-22T16:44:28+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/a856237d7dfab74c4e7fa77b3cbb6b2cc511a791"
+      },
+      {
+        "commit_hash": "e736939de14cabe4664fc3904791db73324625ed",
+        "commit_message": "fix pvm tests",
+        "commit_date": "2026-04-22T08:43:54+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/e736939de14cabe4664fc3904791db73324625ed"
+      },
+      {
+        "commit_hash": "58e62f3755761382c3acd764a6e71f8d8530eba9",
+        "commit_message": "skip pvm tests",
+        "commit_date": "2026-04-22T08:37:40+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/58e62f3755761382c3acd764a6e71f8d8530eba9"
+      },
+      {
+        "commit_hash": "e1922b4f1cd0cd59e81a87a8c9738bd06969b17f",
+        "commit_message": "disable pvm tests, fix linters and typechecker",
+        "commit_date": "2026-04-22T08:01:03+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/e1922b4f1cd0cd59e81a87a8c9738bd06969b17f"
+      },
+      {
+        "commit_hash": "1607c7f685338164278eada65d54796a7316def0",
+        "commit_message": "fix grandpa depth",
+        "commit_date": "2026-04-21T20:10:28+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/1607c7f685338164278eada65d54796a7316def0"
+      },
+      {
+        "commit_hash": "22c8a271207c4db8f20a555e257c845ea81ce471",
+        "commit_message": "use max_depth instead of max_retention",
+        "commit_date": "2026-04-21T10:14:15+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/22c8a271207c4db8f20a555e257c845ea81ce471"
+      },
+      {
+        "commit_hash": "5fdcc0962e590937c0aaddae37551502bfcffd0c",
+        "commit_message": "increase retention to 8",
+        "commit_date": "2026-04-21T09:52:24+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/5fdcc0962e590937c0aaddae37551502bfcffd0c"
       }
     ]
   },
