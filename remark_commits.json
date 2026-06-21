@@ -1,5 +1,351 @@
 [
   {
+    "remark_url": "https://polkadot.subscan.io/extrinsic/31777865-2",
+    "commit_hash": "f1b704daaf4bb087813ddd53c42e3265122cf9c5",
+    "commit_message": "update constants and definitions to 0.8.0",
+    "remark_date": "2026-06-21 17:35:06 UTC",
+    "commit_date": "2026-06-20T11:39:45+02:00",
+    "github_commit_url": "https://github.com/dakk/jampy/commit/f1b704daaf4bb087813ddd53c42e3265122cf9c5",
+    "type": "remark"
+  },
+  {
+    "type": "gap",
+    "commits": [
+      {
+        "commit_hash": "7427863293afaac31046706717bee499bb6b6e01",
+        "commit_message": "update dockerenv to 0.8.0",
+        "commit_date": "2026-06-19T14:01:03+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/7427863293afaac31046706717bee499bb6b6e01"
+      },
+      {
+        "commit_hash": "0aac121d825370582a32b83e3e787b27811cd06b",
+        "commit_message": "Merge pull request #70 from dakk/gas-model",
+        "commit_date": "2026-06-11T15:21:33+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/0aac121d825370582a32b83e3e787b27811cd06b"
+      },
+      {
+        "commit_hash": "93deed1123f0e1cc77d6db407f2b19ce0716327e",
+        "commit_message": "lintfix",
+        "commit_date": "2026-06-11T15:20:53+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/93deed1123f0e1cc77d6db407f2b19ce0716327e"
+      },
+      {
+        "commit_hash": "aec62da51d57189dad23d131129e1d353d870c79",
+        "commit_message": "handle hostcall in test_pvm",
+        "commit_date": "2026-06-11T15:11:30+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/aec62da51d57189dad23d131129e1d353d870c79"
+      },
+      {
+        "commit_hash": "2cf7d9388554b884a6ec3d870f7a0e1b3398c52f",
+        "commit_message": "fix a.61 for using the previous buffer",
+        "commit_date": "2026-06-11T15:07:21+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/2cf7d9388554b884a6ec3d870f7a0e1b3398c52f"
+      },
+      {
+        "commit_hash": "dac33325a29f47f280f2f5d80c9ed6ceccd7ae1b",
+        "commit_message": "fix A.11 condition",
+        "commit_date": "2026-06-11T13:58:29+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/dac33325a29f47f280f2f5d80c9ed6ceccd7ae1b"
+      },
+      {
+        "commit_hash": "4c9dc74894f476ac45b06fc33462120abdd56099",
+        "commit_message": "fix program filler issue for riscv testing",
+        "commit_date": "2026-06-11T12:53:09+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/4c9dc74894f476ac45b06fc33462120abdd56099"
+      },
+      {
+        "commit_hash": "37afa1c0d09a1dea8049317be81960dc44196d6d",
+        "commit_message": "fix pvm test",
+        "commit_date": "2026-06-11T12:40:45+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/37afa1c0d09a1dea8049317be81960dc44196d6d"
+      },
+      {
+        "commit_hash": "9ee93cae1831883ed85931e2538922985253d373",
+        "commit_message": "unlikely is not terminating",
+        "commit_date": "2026-06-11T12:15:53+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/9ee93cae1831883ed85931e2538922985253d373"
+      },
+      {
+        "commit_hash": "915535de7ace8668787af95f19f491488582e9c6",
+        "commit_message": "fix testing, update exitreason strings, minor fix on cost_on_regs_overlaps",
+        "commit_date": "2026-06-11T12:14:48+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/915535de7ace8668787af95f19f491488582e9c6"
+      },
+      {
+        "commit_hash": "c9cb206db4e008cbb061b32b2721236509e70765",
+        "commit_message": "add is_using_recompiler utility",
+        "commit_date": "2026-06-10T17:23:07+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/c9cb206db4e008cbb061b32b2721236509e70765"
+      },
+      {
+        "commit_hash": "f285b62be2868291748175167fd3b41e23e551c2",
+        "commit_message": "fix block gas cost",
+        "commit_date": "2026-06-10T17:22:57+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/f285b62be2868291748175167fd3b41e23e551c2"
+      },
+      {
+        "commit_hash": "6233bcd0dcdcbb0527c120559c4893e7e051428b",
+        "commit_message": "remove legacy invokation fallback",
+        "commit_date": "2026-06-10T17:22:49+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/6233bcd0dcdcbb0527c120559c4893e7e051428b"
+      },
+      {
+        "commit_hash": "24ca0a28deaff082f45e908f0dc94f5a2f8fdee7",
+        "commit_message": "fix gas calc",
+        "commit_date": "2026-06-10T17:10:52+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/24ca0a28deaff082f45e908f0dc94f5a2f8fdee7"
+      },
+      {
+        "commit_hash": "3ec98212e4dfb6be7d863799dd54a3d6259cecc5",
+        "commit_message": "fix gas calc and testing",
+        "commit_date": "2026-06-10T16:46:53+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/3ec98212e4dfb6be7d863799dd54a3d6259cecc5"
+      },
+      {
+        "commit_hash": "1b943900fc1a0d911ba77cdcfa3132a262447406",
+        "commit_message": "finish gas table impl",
+        "commit_date": "2026-06-10T13:18:43+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/1b943900fc1a0d911ba77cdcfa3132a262447406"
+      },
+      {
+        "commit_hash": "2cb45ecaeb8b3991d44fd932e15a8e893b8b3a82",
+        "commit_message": "update table",
+        "commit_date": "2026-06-10T10:17:49+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/2cb45ecaeb8b3991d44fd932e15a8e893b8b3a82"
+      },
+      {
+        "commit_hash": "b9989c4f4041a7f126df2973dd595800a1c06497",
+        "commit_message": "gas model minor fixes",
+        "commit_date": "2026-06-10T09:57:31+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/b9989c4f4041a7f126df2973dd595800a1c06497"
+      },
+      {
+        "commit_hash": "2c44c545f4f687a5a7496883f5baea0967581262",
+        "commit_message": "tracing, gas cost for branch, minor fixes",
+        "commit_date": "2026-06-10T07:44:59+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/2c44c545f4f687a5a7496883f5baea0967581262"
+      },
+      {
+        "commit_hash": "0813e90d7e76046a9a3470b9caf1d24f1d0737ba",
+        "commit_message": "pvm fixes and gas calc",
+        "commit_date": "2026-06-09T15:57:49+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/0813e90d7e76046a9a3470b9caf1d24f1d0737ba"
+      },
+      {
+        "commit_hash": "c5556d8e63a121af713ee40b09517a2d55b63ed5",
+        "commit_message": "update all the pvm appendix A formula",
+        "commit_date": "2026-06-08T11:49:29+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/c5556d8e63a121af713ee40b09517a2d55b63ed5"
+      },
+      {
+        "commit_hash": "62a0696f639508e8ca029fb31833ea74690eb162",
+        "commit_message": "minor pvm fixtures",
+        "commit_date": "2026-06-08T10:30:04+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/62a0696f639508e8ca029fb31833ea74690eb162"
+      },
+      {
+        "commit_hash": "f034df508edfbb5497f4932302d0e3e06ea3b673",
+        "commit_message": "jumping",
+        "commit_date": "2026-06-06T16:43:27+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/f034df508edfbb5497f4932302d0e3e06ea3b673"
+      },
+      {
+        "commit_hash": "f30fcdbbc42e5ad67923600d7503dfff147aa06f",
+        "commit_message": "more on pvm",
+        "commit_date": "2026-06-06T16:36:19+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/f30fcdbbc42e5ad67923600d7503dfff147aa06f"
+      },
+      {
+        "commit_hash": "e1c95bf311b3cb9b9047159b55ca612c5f702d4e",
+        "commit_message": "A.9",
+        "commit_date": "2026-06-06T16:20:52+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/e1c95bf311b3cb9b9047159b55ca612c5f702d4e"
+      },
+      {
+        "commit_hash": "786671b08b3a23a64e9e1a72c52310fe7c67aa8d",
+        "commit_message": "block gas charging",
+        "commit_date": "2026-06-06T16:14:38+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/786671b08b3a23a64e9e1a72c52310fe7c67aa8d"
+      },
+      {
+        "commit_hash": "9c922c1ac5d09d191cba6eec5f1161631013a160",
+        "commit_message": "L function",
+        "commit_date": "2026-06-06T15:57:39+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/9c922c1ac5d09d191cba6eec5f1161631013a160"
+      },
+      {
+        "commit_hash": "b25d42c0e796de5dd1213fc0b787818786647a7e",
+        "commit_message": "program parsing and invokation fix",
+        "commit_date": "2026-06-06T15:50:42+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/b25d42c0e796de5dd1213fc0b787818786647a7e"
+      },
+      {
+        "commit_hash": "14cfc77c669d7a6b210fab420dc4183959caf6df",
+        "commit_message": "fix typing and linters",
+        "commit_date": "2026-06-06T15:49:17+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/14cfc77c669d7a6b210fab420dc4183959caf6df"
+      },
+      {
+        "commit_hash": "2b8d11dc50afa40983558d77e67060a10a13d0e5",
+        "commit_message": "update test_pvm for 0.8.0 test case",
+        "commit_date": "2026-06-05T18:10:21+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/2b8d11dc50afa40983558d77e67060a10a13d0e5"
+      },
+      {
+        "commit_hash": "61cd8b135fb80d8796ef60f66b22b7aff7c3a53d",
+        "commit_message": "add gas_charged flag in pvmstate",
+        "commit_date": "2026-06-05T17:21:40+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/61cd8b135fb80d8796ef60f66b22b7aff7c3a53d"
+      },
+      {
+        "commit_hash": "c6672650fe2dfe97acf585f54ee6393bbc15e798",
+        "commit_message": "remove gas delta from instr",
+        "commit_date": "2026-06-05T17:21:31+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/c6672650fe2dfe97acf585f54ee6393bbc15e798"
+      },
+      {
+        "commit_hash": "7a17b2e1f93b93246a7760a16e3fd5404b39f64d",
+        "commit_message": "gas model helper structures and functions",
+        "commit_date": "2026-06-05T17:21:19+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/7a17b2e1f93b93246a7760a16e3fd5404b39f64d"
+      },
+      {
+        "commit_hash": "3dc959321488cfb3ec06dd30a04a4589ee2b05e4",
+        "commit_message": "Merge remote-tracking branch 'refs/remotes/origin/update-080' into update-080",
+        "commit_date": "2026-06-05T12:51:41+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/3dc959321488cfb3ec06dd30a04a4589ee2b05e4"
+      },
+      {
+        "commit_hash": "d4c8b24f0888a6916ed958fd31eacfa7a94434ba",
+        "commit_message": "gas model file",
+        "commit_date": "2026-06-04T16:58:36+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/d4c8b24f0888a6916ed958fd31eacfa7a94434ba"
+      },
+      {
+        "commit_hash": "3a1c035e7b237a8631d2be77ca5b1239fea30b38",
+        "commit_message": "unlikely instruction",
+        "commit_date": "2026-06-04T16:58:29+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/3a1c035e7b237a8631d2be77ca5b1239fea30b38"
+      },
+      {
+        "commit_hash": "70e564833cfc8fc68913127ec328bb4c8a7056d4",
+        "commit_message": "gas model file",
+        "commit_date": "2026-06-04T16:58:36+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/70e564833cfc8fc68913127ec328bb4c8a7056d4"
+      },
+      {
+        "commit_hash": "95d0acbc13ec896a8eaee3d6cc9cafcba3c4af6c",
+        "commit_message": "unlikely instruction",
+        "commit_date": "2026-06-04T16:58:29+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/95d0acbc13ec896a8eaee3d6cc9cafcba3c4af6c"
+      }
+    ]
+  },
+  {
+    "remark_url": "https://polkadot.subscan.io/extrinsic/31604515-2",
+    "commit_hash": "3378545fbe730473852ca254fb0ea02edfca4570",
+    "commit_message": "fixlint",
+    "remark_date": "2026-06-09 13:58:36 UTC",
+    "commit_date": "2026-06-05T12:51:09+02:00",
+    "github_commit_url": "https://github.com/dakk/jampy/commit/3378545fbe730473852ca254fb0ea02edfca4570",
+    "type": "remark"
+  },
+  {
+    "type": "gap",
+    "commits": [
+      {
+        "commit_hash": "8604f746057b0c8fab0f5ecd77b3e211ba1e19f3",
+        "commit_message": "improve decoded access in pvm loop",
+        "commit_date": "2026-06-05T12:50:52+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/8604f746057b0c8fab0f5ecd77b3e211ba1e19f3"
+      },
+      {
+        "commit_hash": "8494010dee1cd6f64d4a2249ca3daa49410e286f",
+        "commit_message": "comments and missing license",
+        "commit_date": "2026-06-05T12:37:45+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/8494010dee1cd6f64d4a2249ca3daa49410e286f"
+      },
+      {
+        "commit_hash": "6465683fda418291b6e21e1fc7f6b254a32c58c2",
+        "commit_message": "refix safrole bug on ticket markers",
+        "commit_date": "2026-05-29T07:26:27+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/6465683fda418291b6e21e1fc7f6b254a32c58c2"
+      },
+      {
+        "commit_hash": "40494a020cb7d9d4318dfe36feec5fc5f64bfa32",
+        "commit_message": "Merge pull request #62 from dakk/optimized-grandpa",
+        "commit_date": "2026-05-28T08:36:36+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/40494a020cb7d9d4318dfe36feec5fc5f64bfa32"
+      },
+      {
+        "commit_hash": "8db4ad8d24bc8df0f87abef14d29c34419a0a8b3",
+        "commit_message": "update tests",
+        "commit_date": "2026-05-28T08:36:13+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/8db4ad8d24bc8df0f87abef14d29c34419a0a8b3"
+      },
+      {
+        "commit_hash": "4abcb44c285b43269c0ec40eff7ef5c3f919c878",
+        "commit_message": "update default workers",
+        "commit_date": "2026-05-28T08:35:58+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/4abcb44c285b43269c0ec40eff7ef5c3f919c878"
+      },
+      {
+        "commit_hash": "ba3407268044414253f650ad31640656d2bb527b",
+        "commit_message": "restore ticket creation",
+        "commit_date": "2026-05-28T08:35:48+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/ba3407268044414253f650ad31640656d2bb527b"
+      },
+      {
+        "commit_hash": "f6eaaa1cf77f247bb08b2f1464b12adebce6e259",
+        "commit_message": "fix winning ticket marker",
+        "commit_date": "2026-05-28T07:36:23+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/f6eaaa1cf77f247bb08b2f1464b12adebce6e259"
+      },
+      {
+        "commit_hash": "366da3340c7904068cb5631983c6d311ab422c3e",
+        "commit_message": "fix safrole ticket checks",
+        "commit_date": "2026-05-28T07:32:29+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/366da3340c7904068cb5631983c6d311ab422c3e"
+      },
+      {
+        "commit_hash": "da6f661e1f44a8f4d9b47358e048de7caf3ffb9b",
+        "commit_message": "fix 6.28",
+        "commit_date": "2026-05-28T07:28:49+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/da6f661e1f44a8f4d9b47358e048de7caf3ffb9b"
+      },
+      {
+        "commit_hash": "9d4bc1a09354d943035f5bc002b3dc1b0aeebb25",
+        "commit_message": "lintfix",
+        "commit_date": "2026-05-26T18:48:37+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/9d4bc1a09354d943035f5bc002b3dc1b0aeebb25"
+      },
+      {
+        "commit_hash": "62c16a2f0790ebf1dfcce070683366ca688c5676",
+        "commit_message": "fix the safrole holy bug",
+        "commit_date": "2026-05-26T18:43:52+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/62c16a2f0790ebf1dfcce070683366ca688c5676"
+      },
+      {
+        "commit_hash": "98f69719e33e27a016d317fd1719b0fead3f76f2",
+        "commit_message": "update ark-vrf",
+        "commit_date": "2026-05-26T15:26:20+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/98f69719e33e27a016d317fd1719b0fead3f76f2"
+      },
+      {
+        "commit_hash": "3e62d45594adcab1bc9d25feacad11a4e366918a",
+        "commit_message": "fix safrole",
+        "commit_date": "2026-05-26T15:26:03+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/3e62d45594adcab1bc9d25feacad11a4e366918a"
+      },
+      {
+        "commit_hash": "4c9eefdeffde6cf3435c4ed65695f0102ea2a7ec",
+        "commit_message": "disable recomp",
+        "commit_date": "2026-05-26T15:25:51+02:00",
+        "github_commit_url": "https://github.com/dakk/jampy/commit/4c9eefdeffde6cf3435c4ed65695f0102ea2a7ec"
+      }
+    ]
+  },
+  {
     "remark_url": "https://polkadot.subscan.io/extrinsic/31390984-2",
     "commit_hash": "0ade71551d1f9530d5a4eff94ba4dca685b4e79b",
     "commit_message": "lintfix",
